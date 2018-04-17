@@ -1,43 +1,36 @@
 package com.infoshareacademy;
 
-import com.infoshareacademy.functions.JSONLoader;
 
+
+import javax.json.JsonArray;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Scanner;
 
 
-public class ZUS
-{
+public class ZUS {
 
 
-    public static void main( String[] args ) {
+    public static void main( String[] args ) throws IOException {
 
+        Scanner inputReader = new Scanner(System.in);
 
-
-
-        System.out.println( "Witam w aplikacji do zgłaszania usterek twojego samochodu." );
-
-
-        Brands brands = new Brands();
-        ArrayList brandsList = brands.getBrands();
+        System.out.println("Witamy w aplikacji , wybierz model samochodu");
 
         JSONLoader jsonLoader = new JSONLoader();
 
+        String sURL = "http://infoshareacademycom.2find.ru/api/v2";
 
+        jsonLoader.showDataType(sURL);
+        jsonLoader.showDataArray(sURL);
 
+        System.out.println(jsonLoader.toString());
 
+        System.out.print("Wpisz nazwę marki : ");
 
-        try {
-            if(jsonLoader.showDataArray() != null){
-                for(int i = 0; i < jsonLoader.showDataArray().size(); i++)
-                {
-                    brandsList.add(jsonLoader.showDataArray().getJsonObject(i));
-                }
-            }
-        }catch (IOException ex){
-            ex.printStackTrace();
-        }
+        String input = inputReader.next();
 
-        System.out.println(brandsList);
+       JsonArray models = SerchEngine.search(input);
+
+        System.out.println(models);
     }
 }

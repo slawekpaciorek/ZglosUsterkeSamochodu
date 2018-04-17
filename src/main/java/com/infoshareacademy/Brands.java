@@ -55,6 +55,28 @@ public class Brands {
         this.brands = brands;
     }
 
+//    Setter and getters for hasImage
+
+    public boolean isHasImage(){
+        return hasImage;
+    }
+
+    public void setHasImage(boolean hasImage){
+        this.hasImage = hasImage;
+    }
+
+    public String getName_clear() {
+        return name_clear;
+    }
+
+    public void setName_clear(String name_clear){
+        this.name_clear = name_clear;
+    }
+
+    public Brands(){
+
+    }
+
 //    Constructor - parametryzowany
 
     public Brands(String id, String name, String name_clear, boolean hasImage, URL link){
