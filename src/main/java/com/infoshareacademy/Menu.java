@@ -6,11 +6,11 @@ public class Menu implements AppOperator{
         System.out.println("---------------------------------------------------------\n" +
                 "Witamy w aplikacji ZUS [Zgłaszanie Usterek Samochodowych]" +
                 "\nAby przejść dalej, wybierz jedną z poniższych opcji:" +
-                "\n\t 1. Wyświetl spis dostępnych pojazdów" +
-                "\n\t 2. Wybierz pojazd" +
-                "\n\t 3. Wyświetl dokumentację aplikacji" +
+                "\n\t 1. Wyświetl spis dostępnych pojazdów - display-c" +
+                "\n\t 2. Rozpocznij wyszukiwanie - start" +
+                "\n\t 3. Wyświetl dokumentację aplikacji - manual" +
                 "\n---------------------------------------------------------" +
-                "\nWybrane przez Ciebie polecenie to:");
+                "\nWpisz polecenie : ");
 
 
 
