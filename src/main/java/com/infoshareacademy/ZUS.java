@@ -1,36 +1,27 @@
 package com.infoshareacademy;
 
-
-
-import javax.json.JsonArray;
-import java.io.IOException;
 import java.util.Scanner;
 
+public class ZUS
+{
+    private static ZusFactory instruction = ZusFactory.init();
 
-public class ZUS {
-
-
-    public static void main( String[] args ) throws IOException {
-
+    public static void main( String[] args ) {
+        
         Scanner inputReader = new Scanner(System.in);
+        private boolean stop = false;
 
-        System.out.println("Witamy w aplikacji , wybierz model samochodu");
+        while(!stop){
+            
+        String input = "menu";
+        String input = instruction.follow(input);
 
-        JSONLoader jsonLoader = new JSONLoader();
+        stop = input.equals("exit");
+        
+        System.out.println();
+        instruction.follow(input);
+        System.out.println();
+            
 
-        String sURL = "http://infoshareacademycom.2find.ru/api/v2";
-
-        jsonLoader.showDataType(sURL);
-        jsonLoader.showDataArray(sURL);
-
-        System.out.println(jsonLoader.toString());
-
-        System.out.print("Wpisz nazwę marki : ");
-
-        String input = inputReader.next();
-
-       JsonArray models = SerchEngine.search(input);
-
-        System.out.println(models);
     }
 }
