@@ -12,7 +12,9 @@ public class ZusFactory {
 
        ZusFactory command = new ZusFactory();
 
-       command.instruction.put("menu", new Menu());
+        command.instruction.put("menu", new Menu());
+        command.instruction.put("display-c"), new Brands());
+        command.instruction.put("start"), new SearchEngine());
 
        return command;
     }
