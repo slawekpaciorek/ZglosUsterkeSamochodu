@@ -11,7 +11,7 @@ public class Brands {
     private String name;
     private String name_clear;
     private boolean hasImage;
-    private URL link;
+    private String link;
     private ArrayList<Brands> brands = new ArrayList<>();
 
 
@@ -37,11 +37,11 @@ public class Brands {
 
 //    Setters and getters for LINK
 
-    public URL getLink() {
+    public String getLink() {
         return link;
     }
 
-    public void setLink(URL link) {
+    public void setLink(String link) {
         this.link = link;
     }
 
@@ -55,9 +55,31 @@ public class Brands {
         this.brands = brands;
     }
 
+//    Setter and getters for hasImage
+
+    public boolean isHasImage(){
+        return hasImage;
+    }
+
+    public void setHasImage(boolean hasImage){
+        this.hasImage = hasImage;
+    }
+
+    public String getName_clear() {
+        return name_clear;
+    }
+
+    public void setName_clear(String name_clear){
+        this.name_clear = name_clear;
+    }
+
+    public Brands(){
+
+    }
+
 //    Constructor - parametryzowany
 
-    public Brands(String id, String name, String name_clear, boolean hasImage, URL link){
+    public Brands(String id, String name, String name_clear, boolean hasImage, String link){
         this.id = id;
         this.name = name;
         this.name_clear = name_clear;

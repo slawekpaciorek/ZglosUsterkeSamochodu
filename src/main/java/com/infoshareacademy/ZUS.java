@@ -22,5 +22,6 @@ public class ZUS
         instruction.follow(input);
         System.out.println();
             
+
     }
 }
