@@ -1,5 +1,6 @@
 package com.infoshareacademy;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ZUS {
@@ -14,6 +15,7 @@ public class ZUS {
 
             instruction.follow("menu");
 
+            System.out.print("Wpisz polecenie : ");
             String input = inputReader.next();
 
             stop = input.equals("exit");
@@ -26,5 +28,6 @@ public class ZUS {
         }
 
         inputReader.close();
+
     }
 }

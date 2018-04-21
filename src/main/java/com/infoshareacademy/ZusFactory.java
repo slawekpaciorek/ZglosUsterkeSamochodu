@@ -14,15 +14,16 @@ public class ZusFactory {
 
         command.instruction.put("menu", new Menu());
 //        command.instruction.put("display-c", new Brands());
-//        command.instruction.put("start", );
+        command.instruction.put("start", new SearchOperator());
+        command.instruction.put("exit", ()-> System.out.println("Dziękujemy za skorzytsanie z aplikacji"));
 
        return command;
     }
+
     private ZusFactory() {
-
         instruction = new HashMap();
-
     }
+
     public void follow(String input){
         if(!instruction.containsKey(input)) {
             input = "error";
