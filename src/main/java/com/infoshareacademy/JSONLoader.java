@@ -14,6 +14,10 @@ public class JSONLoader {
 
     public String jsonObjectName;
 
+    public static String MAINLINK = "http://infoshareacademycom.2find.ru";
+    public static String SUBLINK = "/api/v2";
+
+
     public String sURL;
     public String data;
     public JsonArray dataContent;

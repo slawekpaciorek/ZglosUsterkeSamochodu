@@ -1,5 +1,7 @@
 package com.infoshareacademy;
 
+import javax.json.JsonObject;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -85,6 +87,31 @@ public class Brands {
         this.name_clear = name_clear;
         this.hasImage = hasImage;
         this.link = link;
+
+    }
+    public Brands(String input) throws IOException {
+
+        String link = JSONLoader.MAINLINK + JSONLoader.SUBLINK;
+
+        JsonObject brand = new JSONLoader().showDataArray(link)
+                .stream().filter(o->o.asJsonObject().getString("name").equals(input))
+                .findAny().get().asJsonObject();
+
+        this.id = brand.getString("id");
+        this.name = brand.getString("name");
+        this.name_clear = brand.getString("name_clear");
+        this.hasImage = brand.getBoolean("has_image");
+        this.link = brand.getString("link");
+    }
+
+    @Override
+    public String toString() {
+        return "[\tMarka: " + name +
+                "\t\n id : " + id +
+                "\t\n nazwa : " + name +
+                "\t\n nazwa prosta : " + name_clear +
+                "\t\n obraz : " + hasImage +
+                "\t\n link : " + link + " ]";
 
     }
 }
