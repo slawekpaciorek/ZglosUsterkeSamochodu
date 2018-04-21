@@ -4,6 +4,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.Objects;
+
 import javax.json.JsonObject;
 
 import javax.json.Json;
@@ -11,6 +13,16 @@ import javax.json.JsonArray;
 import javax.json.JsonReader;
 
 public class JSONLoader {
+
+    public String jsonObjectName;
+
+    public static String MAINLINK = "http://infoshareacademycom.2find.ru";
+    public static String SUBLINK = "/api/v2";
+
+
+    public String sURL;
+    public String data;
+    public ArrayList dataContent;
 
     public String showDataType(String sURL) throws IOException {
         //sURL = "http://infoshareacademycom.2find.ru/api/v2";
@@ -20,7 +32,7 @@ public class JSONLoader {
         JsonReader rdr = Json.createReader(is);
         JsonObject jsonObject = rdr.readObject();
 
-        return jsonObject.getString("datatype");
+        return data = jsonObject.getString("datatype");
 
     }
 
@@ -44,7 +56,17 @@ public class JSONLoader {
             }
         }
 
-        return jsonList;
+        return dataContent = jsonList;
+
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "Data : " +  data +
+                "\n" + data + " : " + dataContent;
+
 
     }
 }
