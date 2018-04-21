@@ -22,7 +22,7 @@ public class JSONLoader {
 
     public String sURL;
     public String data;
-    public ArrayList dataContent;
+    public JsonArray dataContent;
 
     public String showDataType(String sURL) throws IOException {
         //sURL = "http://infoshareacademycom.2find.ru/api/v2";
@@ -36,7 +36,7 @@ public class JSONLoader {
 
     }
 
-    public ArrayList showDataArray(String sURL) throws IOException {
+    public JsonArray showDataArray(String sURL) throws IOException {
         //sURL = "http://infoshareacademycom.2find.ru/api/v2/";
 
         URL url = new URL(sURL);
@@ -48,16 +48,7 @@ public class JSONLoader {
 
         JsonArray jsonArray = (JsonArray) jsonObject.get("data");
 
-        ArrayList<String> jsonList = new ArrayList<String>();
-        if (jsonArray != null) {
-            int len = jsonArray.size();
-            for (int i=0;i<len;i++){
-                jsonList.add(jsonArray.get(i).toString());
-            }
-        }
-
-        return dataContent = jsonList;
-
+        return dataContent = jsonArray;
     }
 
 
