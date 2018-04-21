@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import com.infoshareacademy.JSONLoader;
 
-public class SerchEngine {
+public class SearchEngine {
 
 
 
