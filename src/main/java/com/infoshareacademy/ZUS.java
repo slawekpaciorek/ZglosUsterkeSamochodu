@@ -2,26 +2,29 @@ package com.infoshareacademy;
 
 import java.util.Scanner;
 
-public class ZUS
-{
+public class ZUS {
     private static ZusFactory instruction = ZusFactory.init();
 
-    public static void main( String[] args ) {
-        
+    public static void main(String[] args) {
+
         Scanner inputReader = new Scanner(System.in);
-        private boolean stop = false;
+        boolean stop = false;
 
-        while(!stop){
-            
-        String input = "menu";
-        String input = instruction.follow(input);
+        while (!stop) {
 
-        stop = input.equals("exit");
-        
-        System.out.println();
-        instruction.follow(input);
-        System.out.println();
-            
+            instruction.follow("menu");
 
+            String input = inputReader.next();
+
+            stop = input.equals("exit");
+
+            System.out.println();
+            instruction.follow(input);
+            System.out.println();
+
+
+        }
+
+        inputReader.close();
     }
 }
