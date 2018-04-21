@@ -1,5 +1,7 @@
 package com.infoshareacademy;
 
+import java.io.IOException;
+
 public class Menu implements AppOperator{
 
     public void execute() {
@@ -9,10 +11,7 @@ public class Menu implements AppOperator{
                 "\n\t 1. Wyświetl spis dostępnych pojazdów - display-c" +
                 "\n\t 2. Rozpocznij wyszukiwanie - start" +
                 "\n\t 3. Wyświetl dokumentację aplikacji - manual" +
-                "\n---------------------------------------------------------" +
-                "\nWpisz polecenie : ");
-
-
+                "\n---------------------------------------------------------");
 
         //utworzyc klase ZusManual, zmaiescic w niej pliki pomocy 
 

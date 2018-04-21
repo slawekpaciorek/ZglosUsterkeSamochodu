@@ -26,7 +26,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>Main</mainClass>
+                            <mainClass>com.infoshareacademy.ZUS</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
