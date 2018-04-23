@@ -2,6 +2,8 @@ package com.infoshareacademy;
 
 import javax.json.JsonArray;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class SearchOperator implements AppOperator  {
@@ -14,13 +16,21 @@ public class SearchOperator implements AppOperator  {
     @Override
     public void execute() {
 
+        List<Brands> brandsList = null;
+        try {
+            brandsList = new BrandsList().getBrandsList();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(brandsList);
+
         System.out.print("Aby zobaczyć listę dosętpnych pojazdów wpisz 'lista' : ");
 
         try {
             jsonLoader.data = jsonLoader.showDataType(JSONLoader.MAINLINK + JSONLoader.SUBLINK);
             jsonLoader.dataContent = jsonLoader.showDataArray(JSONLoader.MAINLINK + JSONLoader.SUBLINK);
-        }
-        catch (IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
 
@@ -30,8 +40,7 @@ public class SearchOperator implements AppOperator  {
             if (input.equals("lista")) {
                 System.out.println(jsonLoader.toString());
                 inputValidation = true;
-            }
-            else
+            } else
                 System.out.println("Wprowadz poprawnie komendę");
         }
 
@@ -41,12 +50,12 @@ public class SearchOperator implements AppOperator  {
         System.out.print("Aby wybrać interesujący cię pojazd wpisz nazwę marki pojazdu : ");
 
         try {
-                input = inputReader.next();
-                JsonArray jsonArray = jsonLoader.showDataArray(JSONLoader.MAINLINK + JSONLoader.SUBLINK);
-                JsonArray modelsList =  SearchEngine.search(input);
-                System.out.println(modelsList);
-                inputValidation = true;
-        }catch (IOException ex){
+            input = inputReader.next();
+            JsonArray jsonArray = jsonLoader.showDataArray(JSONLoader.MAINLINK + JSONLoader.SUBLINK);
+            JsonArray modelsList = SearchEngine.search(input);
+            System.out.println(modelsList);
+            inputValidation = true;
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
 

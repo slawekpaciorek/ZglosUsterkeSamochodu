@@ -106,12 +106,12 @@ public class Brands {
 
     @Override
     public String toString() {
-        return "[\tMarka: " + name +
+        return "[ Marka: " + name +
                 "\t\n id : " + id +
                 "\t\n nazwa : " + name +
                 "\t\n nazwa prosta : " + name_clear +
                 "\t\n obraz : " + hasImage +
-                "\t\n link : " + link + " ]";
+                "\t\n link : " + link + " ]\n";
 
     }
 }
