@@ -23,7 +23,27 @@ public class SearchOperator implements AppOperator  {
             e.printStackTrace();
         }
 
-        System.out.println(brandsList);
+//        System.out.println(brandsList);
+
+        List brandsNames = null;
+
+        try {
+            brandsNames = new BrandsList().brandsNames;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+//        System.out.println(brandsNames);
+
+        String brandsNameForEachLetter = null;
+
+        try {
+            brandsNameForEachLetter = new BrandsList().brandsNameForEachLetter();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(brandsNameForEachLetter);
 
         System.out.print("Aby zobaczyć listę dosętpnych pojazdów wpisz 'lista' : ");
 
