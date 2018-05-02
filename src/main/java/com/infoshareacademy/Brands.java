@@ -14,7 +14,7 @@ public class Brands {
     private String name_clear;
     private boolean hasImage;
     private String link;
-    private ArrayList<Brands> brands = new ArrayList<>();
+
 
 
 //    Setters and getters for ID
@@ -47,15 +47,6 @@ public class Brands {
         this.link = link;
     }
 
-//    Setters and getters for brands
-
-    public ArrayList<Brands> getBrands() {
-        return brands;
-    }
-
-    public void setBrands(ArrayList<Brands> brands) {
-        this.brands = brands;
-    }
 
 //    Setter and getters for hasImage
 
@@ -107,11 +98,11 @@ public class Brands {
     @Override
     public String toString() {
         return "[ Marka: " + name +
-                "\t\n id : " + id +
-                "\t\n nazwa : " + name +
-                "\t\n nazwa prosta : " + name_clear +
-                "\t\n obraz : " + hasImage +
-                "\t\n link : " + link + " ]\n";
+                "\n\t id : " + id +
+                "\n\t nazwa : " + name +
+                "\n\t nazwa prosta : " + name_clear +
+                "\n\t obraz : " + hasImage +
+                "\n\t link : " + link + " ]\n";
 
     }
 }
