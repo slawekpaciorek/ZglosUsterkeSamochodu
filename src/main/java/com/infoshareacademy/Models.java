@@ -1,6 +1,7 @@
 package com.infoshareacademy;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 
 class Models extends Brands {
 
@@ -117,9 +118,21 @@ class Models extends Brands {
                 "\t\n Numer id : " + id +
                 "\t\n Nazwa modelu : " + name +
                 "\t\n Rozpoczęcie produkcji : " + start_month + "-" + start_year +
-                "\t\n Zakończenie produkcji : " + end_month + "-" + end_year +
+                "\t\n Zakończenie produkcji : " + endDateProduction() +
                 "\t\n Grupa : " + vehicle_group +
                 "\t\n Link : " + link;
 
+    }
+
+    public String endDateProduction(){
+
+        String endDateProduction = new String();
+
+        if(end_year.equals("null") && end_month.equals("null"))
+            endDateProduction = " in production ";
+        else
+            endDateProduction = end_month + " " + end_year;
+
+        return endDateProduction;
     }
 }
