@@ -24,10 +24,10 @@ class ModelsList {
 
             String id = jsonObject.getString("id");
             String name = jsonObject.getString("name");
-            String end_year = jsonObject.get("end_year").toString();
-            String end_month = jsonObject.get("end_month").toString();
-            String start_year = jsonObject.get("start_year").toString();
-            String start_month = jsonObject.get("start_month").toString();
+            int end_year = value("end_year", jsonObject);
+            int end_month = value("end_month", jsonObject);
+            int start_year = value("start_year", jsonObject);
+            int start_month = value("start_month", jsonObject);
             String vehicle_group = jsonObject.getString("vehicle_group");
             String link = jsonObject.getString("link");
 
@@ -49,6 +49,18 @@ class ModelsList {
         return modelsNamesList;
     }
 
+    private int value(String name, JsonObject jsonObject) {
+
+        boolean checkNull = jsonObject.isNull(name);
+        int value = 0;
+
+        if (!checkNull){
+            String valueS = jsonObject.getString(name);
+            return value = Integer.parseInt(valueS);
+        }
+        else
+            return value;
+    }
 
 
 }
