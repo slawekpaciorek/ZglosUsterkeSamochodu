@@ -2,6 +2,7 @@ package com.infoshareacademy;
 
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
@@ -126,12 +127,48 @@ public class SearchOperator implements AppOperator  {
         }
 
 
-
+        inputValidation = false;
 
 /*
     WYBÓR ROCZNIKA
 
 */
+
+        System.out.println("Wybierz rocznik twojego pojazdu");
+        System.out.print("Podaj rok : ");
+        int usrVehicleYear = 0;
+        int usrVehicleMonth = 0;
+        while(!inputValidation) {
+
+            usrVehicleYear = Integer.parseInt(inputReader.next());
+
+            if(usrVehicleYear > model.getStart_year() && (model.getEnd_year() == 0 || usrVehicleYear < model.getEnd_year()) && usrVehicleYear <= LocalDateTime.now().getYear())
+                inputValidation = true;
+            else if(usrVehicleYear < model.getStart_year())
+                System.out.print("Wybrany rok jest za niski, podaj rok produkcji auta jeszcze raz : ");
+            else if((model.getEnd_year() == 0 || usrVehicleYear > model.getEnd_year()) || usrVehicleYear > LocalDateTime.now().getYear() )
+                System.out.print("Wybrany rok jest za wysoki, podaj rok produkcji auta jeszcze raz : ");
+        }
+
+        inputValidation = false;
+        System.out.println();
+
+        System.out.print("Podaj miesiac : ");
+
+        while(!inputValidation){
+
+            usrVehicleMonth = Integer.parseInt(inputReader.next());
+
+            if((usrVehicleYear == model.getStart_year() && usrVehicleMonth >= model.getStart_month() && usrVehicleMonth <= 12) || (usrVehicleYear > model.getStart_year() && usrVehicleMonth <= 12 ) )
+                inputValidation = true;
+            else
+                System.out.print("Wpisz prawidlowy miesiac prdukcji auta : ");
+
+        }
+
+        System.out.println("Data produkcji twojego auta to : " + usrVehicleMonth + "-" + usrVehicleYear);
+
+
 
 /*
     WYBÓR NADWOZIA

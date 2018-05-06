@@ -129,7 +129,7 @@ class Models extends Brands {
         String endDateProduction = new String();
 
         if(end_year == 0 && end_month == 0)
-            endDateProduction = "in production ";
+            endDateProduction = "in production";
         else
             endDateProduction = end_month + "-" + end_year;
 
