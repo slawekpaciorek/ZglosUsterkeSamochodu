@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SearchOperator implements AppOperator  {
 
@@ -32,6 +33,8 @@ public class SearchOperator implements AppOperator  {
             e.printStackTrace();
         }
 
+        System.out.println("\n-------------------------Wybor marki pojazdu-------------------------\n");
+
         System.out.println("Wybierz markę pojazdu, postępuj wg wskazówek");
         System.out.println("\t1. Możesz wpisać markę pojazdu- wpisz markę pojazdu np. 'Renault'");
         System.out.println("\t2. Możesz wpisać literę aby sprawdzić dostęone modele - wpisz literę, np 'a' ");
@@ -40,7 +43,7 @@ public class SearchOperator implements AppOperator  {
 
         while(!inputValidation) {
             System.out.print("Wpisz wybraną komendę : ");
-            input = inputReader.next().toUpperCase();
+            input = returnInput().toUpperCase();
             System.out.println();
 
             if (brandsList.brandsNames.contains(input)) {
@@ -90,6 +93,7 @@ public class SearchOperator implements AppOperator  {
     WYBÓR MODELU
 
 */
+        System.out.println("\n-------------------------Wybor modelu-------------------------\n");
 
         Models model = new Models();
         List<Models> listOfModels = null;
@@ -106,7 +110,7 @@ public class SearchOperator implements AppOperator  {
         while(!inputValidation){
 
             System.out.print("Wybierz interesujacy Cie model : ");
-            input = inputReader.next();
+            input = returnInput();
             System.out.println();
 
             if(modelsListNames.contains(input)) {
@@ -133,6 +137,7 @@ public class SearchOperator implements AppOperator  {
     WYBÓR ROCZNIKA
 
 */
+        System.out.println("\n-------------------------Wybor rocznika-------------------------\n");
 
         System.out.println("Wybierz rocznik twojego pojazdu");
         System.out.print("Podaj rok : ");
@@ -174,6 +179,40 @@ public class SearchOperator implements AppOperator  {
     WYBÓR NADWOZIA
 
 */
+        System.out.println("\n-------------------------Wybor wersji i nadwozia-------------------------\n");
+
+        List<ModelDetails> detailsList = new ArrayList<>();
+        ModelDetails version = null;
+
+        try{
+
+            detailsList = new ModelDetailList().getModelDetails(model.getLink());
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+
+        List possibleVersions = detailsList.stream().map(ModelDetails::getName).distinct().collect(Collectors.toList());
+
+        System.out.println("Lista dostepnych wersji pojazdu : " + possibleVersions);
+
+        List possibleBody = detailsList.stream().map(ModelDetails::getBody).distinct().collect(Collectors.toList());
+
+        System.out.println("Lista dostepnych wersji nadwozia : " + possibleBody);
+
+        System.out.println("\nWybierz ineresujaca cie wersje pojazdu: ");
+        input = returnInput();
+        System.out.println();
+
+        if(possibleVersions.contains(input)) {
+
+            version = detailsList.stream().filter(x -> x.getName().equals(input)).findAny().get();
+        }
+        else
+            System.out.println("Wybrales bledny model, sprobuj ponownie.");
+
+        System.out.println("Wybrales nasepujacy pojazd : " + brand.getName() + " " + model.getName() + " "
+                + version.getName() + ", rok produkcji : " + usrVehicleYear + "." );
+
 
 /*
     WYBÓR KATEGORII CZĘŚCI
@@ -200,6 +239,17 @@ public class SearchOperator implements AppOperator  {
         System.out.println("Wybrana marka pojazdu to : " + brand.getName().toUpperCase());
 
         return brand;
+
+    }
+
+    public String returnInput(){
+        Scanner scn = new Scanner(System.in);
+
+        String input = scn.nextLine();
+
+
+        return input;
+
 
     }
 }

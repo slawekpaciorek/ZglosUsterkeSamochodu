@@ -20,25 +20,25 @@ public class ModelDetailList {
 
             JsonObject jsonObject = jsonArray.getJsonObject(i);
 
-             String id = jsonObject.getString("id");
-             String model_id = jsonObject.getString("model_id");
-             String brand_id = jsonObject.getString("brand_id");
-             String name = jsonObject.getString("name");
-             int end_year = getValue("end_year", jsonObject);
-             int end_month = getValue("end_month", jsonObject);
-             int start_year = getValue("start_year", jsonObject);
-             int start_month = getValue("start_month", jsonObject);
-             int ccm = getValue("ccm", jsonObject);
-             int power_kW = getValue("kw", jsonObject);
-             int power_hp = getValue("hp", jsonObject);
-             int cylinders = getValue("cylinders", jsonObject);
-             String engine = jsonObject.get("engine").toString();
-             String engine_desc = jsonObject.getString("engine_txt");
-             String fuel = jsonObject.getString("fuel");
-             String body = jsonObject.getString("body");
-             String axle = jsonObject.get("axle").toString();
-             String max_weight = jsonObject.get("max").toString();
-             String link = jsonObject.getString("link");
+             String id = getStringValue("id", jsonObject);
+             String model_id = getStringValue("model_id", jsonObject);
+             String brand_id = getStringValue("brand_id", jsonObject);
+             String name = getStringValue("name", jsonObject);
+             int end_year = getIntValue("end_year", jsonObject);
+             int end_month = getIntValue("end_month", jsonObject);
+             int start_year = getIntValue("start_year", jsonObject);
+             int start_month = getIntValue("start_month", jsonObject);
+             int ccm = getIntValue("ccm", jsonObject);
+             int power_kW = getIntValue("kw", jsonObject);
+             int power_hp = getIntValue("hp", jsonObject);
+             int cylinders = getIntValue("cylinders", jsonObject);
+             String engine = getStringValue("engine", jsonObject);
+             String engine_desc = getStringValue("engine_txt", jsonObject);
+             String fuel = getStringValue("fuel", jsonObject);
+             String body = getStringValue("body", jsonObject);
+             String axle = getStringValue("axle", jsonObject);
+             String max_weight = getStringValue("max_weight", jsonObject);
+             String link = getStringValue("link", jsonObject);
 
              modelDetails.add(new ModelDetails(id,model_id,brand_id,name,end_year,end_month,start_year,start_month,ccm,power_kW, power_hp,cylinders,engine, engine_desc, fuel, body, axle,max_weight, link));
 
@@ -47,7 +47,7 @@ public class ModelDetailList {
         return modelDetails;
     }
 
-    private int getValue(String name, JsonObject jsonObject){
+    private int getIntValue(String name, JsonObject jsonObject){
 
         boolean checkNull = jsonObject.isNull(name);
         int value = 0;
@@ -58,6 +58,21 @@ public class ModelDetailList {
         }
         else
             return value;
+    }
+
+    private String getStringValue(String name, JsonObject jsonObject){
+
+        String value;
+
+        boolean checkNull = jsonObject.isNull(name);
+
+        if(!checkNull)
+            value = jsonObject.getString(name);
+        else
+            value = "unknown";
+
+
+        return value;
     }
 
 
@@ -112,4 +127,52 @@ class ModelDetails{
 
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getEngine() {
+        return engine;
+    }
+
+    public String getEngine_desc() {
+        return engine_desc;
+    }
+
+    public String getFuel() {
+        return fuel;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    @Override
+    public String toString() {
+        return  "\n" + name + "{" +
+                "id='" + id + '\'' +
+                ", model_id='" + model_id + '\'' +
+                ", brand_id='" + brand_id + '\'' +
+                ", name='" + name + '\'' +
+                ", end_year=" + end_year +
+                ", end_month=" + end_month +
+                ", start_year=" + start_year +
+                ", start_month=" + start_month +
+                ", ccm=" + ccm +
+                ", power_kW=" + power_kW +
+                ", power_hp=" + power_hp +
+                ", cylinders=" + cylinders +
+                ", engine='" + engine + '\'' +
+                ", engine_desc='" + engine_desc + '\'' +
+                ", fuel='" + fuel + '\'' +
+                ", body='" + body + '\'' +
+                ", axle='" + axle + '\'' +
+                ", max_weight='" + max_weight + '\'' +
+                ", link='" + link + '\'' +
+                '}';
+    }
 }
