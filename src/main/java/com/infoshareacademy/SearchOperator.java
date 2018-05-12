@@ -37,12 +37,12 @@ public class SearchOperator implements AppOperator  {
 
         System.out.println("Wybierz markę pojazdu, postępuj wg wskazówek");
         System.out.println("\t1. Możesz wpisać markę pojazdu- wpisz markę pojazdu np. 'Renault'");
-        System.out.println("\t2. Możesz wpisać literę aby sprawdzić dostęone modele - wpisz literę, np 'a' ");
+        System.out.println("\t2. Możesz wpisać literę aby sprawdzić dostępne modele - wpisz literę, np 'a' ");
         System.out.println("\t3. Możesz wyświetlić wszystkie dostęone marki - wpisz 'all' ");
 
 
         while (!inputValidation) {
-            System.out.print("Wpisz wybraną komendę : ");
+            System.out.print("\nWpisz wybraną komendę (wpisz komende) : ");
             input = returnInput().toUpperCase();
             System.out.println();
 
@@ -69,7 +69,7 @@ public class SearchOperator implements AppOperator  {
 
         inputValidation = false;
 
-        System.out.print("Czy chcesz zobaczyć szczegóły wybranego rekordu, wpisz 'yes' lub 'no' : ");
+        System.out.print("\nCzy chcesz zobaczyć szczegóły wybranego rekordu, wpisz 'yes' lub 'no' : ");
         input = inputReader.next();
         System.out.println();
         if (input.equals("yes"))
@@ -109,23 +109,29 @@ public class SearchOperator implements AppOperator  {
         while (!inputValidation) {
 
             System.out.print("Wybierz interesujacy Cie model : ");
-            input = returnInput();
+            input = returnInput().trim().toLowerCase();
             System.out.println();
+            List<String> modelsNamesList = listOfModels.stream().map(x->x.getName().toLowerCase().trim()).collect(Collectors.toList());
 
-            if (modelsListNames.contains(input)) {
-                model = listOfModels.stream().filter(x -> x.getName().equals(input)).findAny().get();
+            if (modelsNamesList.contains(input)) {
+                model = listOfModels.stream().filter(x -> x.getName().trim().toLowerCase().equals(input)).findAny().get();
                 System.out.println();
                 System.out.print("Wybrany przez Ciebie model to : " + brand.getName() + " " + model.getName() + ". " +
-                        "\n\t Jesli interesuja cie dodtakowe informacje wpisz 'more : ");
+                        "\n\nJesli interesuja cie dodtakowe informacje wpisz 'more' lub 'forward' aby kontynuowac : ");
 
                 String inputInIf = inputReader.next();
 
-                if (inputInIf.equals("more"))
+                if (inputInIf.equals("more")) {
                     System.out.println(model.toString());
-                inputValidation = true;
+                    inputValidation = true;
+                }
+                else if(inputInIf.equals("forward")){
+                    System.out.println("\nPrzechodzisz do modulu wybierania rocznika.");
+                    inputValidation = true;
+                }
 
             } else
-                System.out.println("Wprowadzona nazwa nie jest prawidlowa.");
+                System.out.println("\nWprowadzona nazwa nie jest prawidlowa.");
         }
 
 
@@ -138,25 +144,33 @@ public class SearchOperator implements AppOperator  {
         System.out.println("\n-------------------------Wybor rocznika-------------------------\n");
 
         System.out.println("Wybierz rocznik twojego pojazdu");
-        System.out.print("Podaj rok : ");
+        System.out.print("\nPodaj rok : ");
         int usrVehicleYear = 0;
         int usrVehicleMonth = 0;
         while (!inputValidation) {
 
             usrVehicleYear = Integer.parseInt(inputReader.next());
 
-            if (usrVehicleYear > model.getStart_year() && (model.getEnd_year() == 0 || usrVehicleYear < model.getEnd_year()) && usrVehicleYear <= LocalDateTime.now().getYear())
+            if (usrVehicleYear > model.getStart_year() &&
+                    (model.getEnd_year() == 0 || usrVehicleYear < model.getEnd_year()) &&
+                    usrVehicleYear <= LocalDateTime.now().getYear())
+
                 inputValidation = true;
+
             else if (usrVehicleYear < model.getStart_year())
+
                 System.out.print("Wybrany rok jest za niski, podaj rok produkcji auta jeszcze raz : ");
-            else if ((model.getEnd_year() == 0 || usrVehicleYear > model.getEnd_year()) || usrVehicleYear > LocalDateTime.now().getYear())
+
+            else if ((model.getEnd_year() == 0 ||
+                    usrVehicleYear > model.getEnd_year()) ||
+                    usrVehicleYear > LocalDateTime.now().getYear())
+
                 System.out.print("Wybrany rok jest za wysoki, podaj rok produkcji auta jeszcze raz : ");
         }
 
         inputValidation = false;
-        System.out.println();
 
-        System.out.print("Podaj miesiac : ");
+        System.out.print("\nPodaj miesiac : ");
 
         while (!inputValidation) {
 
