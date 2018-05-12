@@ -28,7 +28,7 @@ public class SearchOperator implements AppOperator  {
 
         try {
             brandsList = new BrandsList();
-            listOfBrands= brandsList.getBrandsList();
+            listOfBrands = brandsList.getBrandsList();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -41,7 +41,7 @@ public class SearchOperator implements AppOperator  {
         System.out.println("\t3. Możesz wyświetlić wszystkie dostęone marki - wpisz 'all' ");
 
 
-        while(!inputValidation) {
+        while (!inputValidation) {
             System.out.print("Wpisz wybraną komendę : ");
             input = returnInput().toUpperCase();
             System.out.println();
@@ -63,17 +63,16 @@ public class SearchOperator implements AppOperator  {
                 System.out.println();
                 brand = chooseFromList(listOfBrands, brand);
                 inputValidation = true;
-            }
-            else
+            } else
                 System.out.println("Wybierz poprawnie komendę");
         }
 
         inputValidation = false;
 
         System.out.print("Czy chcesz zobaczyć szczegóły wybranego rekordu, wpisz 'yes' lub 'no' : ");
-        input=inputReader.next();
+        input = inputReader.next();
         System.out.println();
-        if(input.equals("yes"))
+        if (input.equals("yes"))
             System.out.println(brand.toString());
         else
             System.out.println("Lista dosępnych modeli znajduje się poniżej.");
@@ -107,26 +106,25 @@ public class SearchOperator implements AppOperator  {
             e.printStackTrace();
         }
 
-        while(!inputValidation){
+        while (!inputValidation) {
 
             System.out.print("Wybierz interesujacy Cie model : ");
             input = returnInput();
             System.out.println();
 
-            if(modelsListNames.contains(input)) {
+            if (modelsListNames.contains(input)) {
                 model = listOfModels.stream().filter(x -> x.getName().equals(input)).findAny().get();
                 System.out.println();
                 System.out.print("Wybrany przez Ciebie model to : " + brand.getName() + " " + model.getName() + ". " +
-                "\n\t Jesli interesuja cie dodtakowe informacje wpisz 'more : ");
+                        "\n\t Jesli interesuja cie dodtakowe informacje wpisz 'more : ");
 
                 String inputInIf = inputReader.next();
 
-                if(inputInIf.equals("more"))
+                if (inputInIf.equals("more"))
                     System.out.println(model.toString());
                 inputValidation = true;
 
-            }
-            else
+            } else
                 System.out.println("Wprowadzona nazwa nie jest prawidlowa.");
         }
 
@@ -143,15 +141,15 @@ public class SearchOperator implements AppOperator  {
         System.out.print("Podaj rok : ");
         int usrVehicleYear = 0;
         int usrVehicleMonth = 0;
-        while(!inputValidation) {
+        while (!inputValidation) {
 
             usrVehicleYear = Integer.parseInt(inputReader.next());
 
-            if(usrVehicleYear > model.getStart_year() && (model.getEnd_year() == 0 || usrVehicleYear < model.getEnd_year()) && usrVehicleYear <= LocalDateTime.now().getYear())
+            if (usrVehicleYear > model.getStart_year() && (model.getEnd_year() == 0 || usrVehicleYear < model.getEnd_year()) && usrVehicleYear <= LocalDateTime.now().getYear())
                 inputValidation = true;
-            else if(usrVehicleYear < model.getStart_year())
+            else if (usrVehicleYear < model.getStart_year())
                 System.out.print("Wybrany rok jest za niski, podaj rok produkcji auta jeszcze raz : ");
-            else if((model.getEnd_year() == 0 || usrVehicleYear > model.getEnd_year()) || usrVehicleYear > LocalDateTime.now().getYear() )
+            else if ((model.getEnd_year() == 0 || usrVehicleYear > model.getEnd_year()) || usrVehicleYear > LocalDateTime.now().getYear())
                 System.out.print("Wybrany rok jest za wysoki, podaj rok produkcji auta jeszcze raz : ");
         }
 
@@ -160,11 +158,11 @@ public class SearchOperator implements AppOperator  {
 
         System.out.print("Podaj miesiac : ");
 
-        while(!inputValidation){
+        while (!inputValidation) {
 
             usrVehicleMonth = Integer.parseInt(inputReader.next());
 
-            if((usrVehicleYear == model.getStart_year() && usrVehicleMonth >= model.getStart_month() && usrVehicleMonth <= 12) || (usrVehicleYear > model.getStart_year() && usrVehicleMonth <= 12 ) )
+            if ((usrVehicleYear == model.getStart_year() && usrVehicleMonth >= model.getStart_month() && usrVehicleMonth <= 12) || (usrVehicleYear > model.getStart_year() && usrVehicleMonth <= 12))
                 inputValidation = true;
             else
                 System.out.print("Wpisz prawidlowy miesiac prdukcji auta : ");
@@ -184,10 +182,10 @@ public class SearchOperator implements AppOperator  {
         List<ModelDetails> detailsList = new ArrayList<>();
         ModelDetails version = null;
 
-        try{
+        try {
 
             detailsList = new ModelDetailList().getModelDetails(model.getLink());
-        }catch(IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
 
@@ -203,27 +201,98 @@ public class SearchOperator implements AppOperator  {
         input = returnInput();
         System.out.println();
 
-        if(possibleVersions.contains(input)) {
+        if (possibleVersions.contains(input)) {
 
             version = detailsList.stream().filter(x -> x.getName().equals(input)).findAny().get();
-        }
-        else
+        } else
             System.out.println("Wybrales bledny model, sprobuj ponownie.");
 
         System.out.println("Wybrales nasepujacy pojazd : " + brand.getName() + " " + model.getName() + " "
-                + version.getName() + ", rok produkcji : " + usrVehicleYear + "." );
+                + version.getName() + ", rok produkcji : " + usrVehicleYear + ".");
 
 
 /*
     WYBÓR KATEGORII CZĘŚCI
 
 */
+        System.out.println("\n-------------------------Wybor kategorii dla czesci-------------------------\n");
+
+        System.out.println("Ponizej znajduje sie lista kategori czesci dla wybranego pojazd :");
+
+        List<Category> partsCategories = null;
+        String sublink = version.getLink();
+
+        try {
+            partsCategories = new PartsCategory().getPartsCategory(sublink);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        List categoriesNames = partsCategories.stream().map(Category::getName).collect(Collectors.toList());
+        System.out.println(categoriesNames.toString());
+
+        System.out.print("\nWprowadz nazwe kategori : ");
+        input = returnInput();
+        Category category = new Category();
+        List<Category> partsSubList = new ArrayList<>();
+        List subCategoryNames = new ArrayList();
+        Category subCategory = null;
+
+        if (categoriesNames.contains(input)) {
+
+            category = partsCategories.stream().filter(x -> x.getName().equals(input)).findAny().get();
+
+            try {
+                partsSubList = new PartsCategory().partsCategorySubList(category.getLink());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            subCategoryNames = partsSubList.stream().map(Category::getName).collect(Collectors.toList());
+            System.out.println("\nWybierz podkategorie z listy ponizej : \n" + /*subCategoryNames.toString()*/ partsSubList.toString());
+        } else
+            System.out.println("Wprowadziles bledna nazwe, nie ma takiej kategorii");
+
+        inputValidation = false;
+
+        while (!inputValidation) {
+
+            System.out.print("\nWprowadz nazwe podkategori :");
+            input = returnInput();
+            subCategory = partsSubList.stream().filter(x -> x.getName().equals(input)).findAny().get();
+
+            if (subCategoryNames.contains(input) && subCategory.getSublist()) {
+                try {
+                    partsSubList = new PartsCategory().partsCategorySubList(subCategory.getLink());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                subCategoryNames = partsSubList.stream().map(Category::getName).collect(Collectors.toList());
+
+                System.out.println(partsSubList.toString());
+            } else {
+                System.out.println("\nPrzechodzisz do modulu wybierania czesci.");
+                inputValidation = true;
+            }
+        }
+
+        inputValidation = false;
 
 /*
     WYBÓR CZĘŚCI
 
 */
+        System.out.println("\n-------------------------Wybor czesci-------------------------\n");
+        link = subCategory.getLink();
+        List<Stock> stockList = new ArrayList<>();
 
+        try {
+            stockList = new PartsCategory().getStockList(link);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("\nLista czesci dla kategorii " + subCategory.getName() + " : " + stockList.toString());
 /*
     WYBÓR POZIOMU JAKOŚCI
 
