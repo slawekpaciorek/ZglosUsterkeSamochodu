@@ -4,10 +4,19 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ZUSTest {
+class ZusFactoryTest {
 
     @Test
-    void shouldMain() {
+    void shouldInit() {
+        //given
+
+        //when
+
+        //then
+    }
+
+    @Test
+    void shouldFollow() {
         //given
 
         //when
