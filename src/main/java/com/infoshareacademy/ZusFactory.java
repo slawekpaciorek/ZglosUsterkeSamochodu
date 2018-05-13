@@ -27,7 +27,7 @@ public class ZusFactory {
        return command;
     }
 
-    private ZusFactory() {
+    ZusFactory() {
         instruction = new HashMap();
     }
 
