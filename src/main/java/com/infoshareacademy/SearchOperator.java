@@ -269,7 +269,8 @@ public class SearchOperator implements AppOperator  {
 
             if (possibleVersionsLowerCase.contains(input)) {
 
-                version = detailsList.stream().filter(x -> x.getName().equals(input)).findAny().get();
+
+                version = detailsList.stream().filter(x -> x.getName().toLowerCase().equals(input)).findAny().get();
                 inputValidation = true;
             } else
                 System.out.print("Wybrales bledna wersje pojazdu, wpisz poprawna nazwe wersji : ");
@@ -309,9 +310,8 @@ public class SearchOperator implements AppOperator  {
 
         if (categoriesNamesLowerCase.contains(input)) {
 
-            input = input.substring(0,1).toUpperCase() + input.substring(1);
             category = partsCategories.stream()
-                    .filter(x -> x.getName().equals(input)).findAny().get();
+                    .filter(x -> x.getName().toLowerCase().equals(input)).findAny().get();
 
             try {
                 partsSubList = new PartsCategory().partsCategorySubList(category.getLink());
@@ -333,10 +333,10 @@ public class SearchOperator implements AppOperator  {
         while (!inputValidation) {
 
             System.out.print("\nWprowadz nazwe podkategori :");
-            input = returnInput();
-            subCategory = partsSubList.stream().filter(x -> x.getName().equals(input)).findAny().get();
+            input = returnInput().toLowerCase();
+            subCategory = partsSubList.stream().filter(x -> x.getName().toLowerCase().equals(input)).findAny().get();
 
-            if (subCategoryNames.contains(input) && subCategory.getSublist()) {
+            if (subCategoryNamesLowerCase.contains(input) && subCategory.getSublist()) {
 
                 try {
                     partsSubList = new PartsCategory().partsCategorySubList(subCategory.getLink());
@@ -348,7 +348,11 @@ public class SearchOperator implements AppOperator  {
 
                 System.out.println(partsSubList.toString());
 
-            } else {
+            }
+            else if(!subCategoryNamesLowerCase.contains(input)){
+                System.out.println("\nWprowadz poprawna nazwe kategorii");
+            }
+            else {
                 System.out.println("\nPrzechodzisz do modulu wybierania czesci.");
                 inputValidation = true;
             }
@@ -399,4 +403,6 @@ public class SearchOperator implements AppOperator  {
 
 
     }
+
+
 }
