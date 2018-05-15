@@ -14,88 +14,6 @@ class Models extends Brands {
     private String vehicle_group;
     private String link;
 
-//    getters & setter for ID
-
-    public String getId(){
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-//    getters & setters for NAME
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-//    getters & setters for END YEAR
-
-    public int getEnd_year() {
-        return end_year;
-    }
-
-    public void setEnd_year(int end_year) {
-        this.end_year = end_year;
-    }
-
-//    getters & setters for END MONTH
-
-    public int getEnd_month() {
-        return end_month;
-    }
-
-    public void setEnd_month(int end_month) {
-        this.end_month = end_month;
-    }
-
-//    getters & setters START YEAR
-
-    public int getStart_year() {
-        return start_year;
-    }
-
-    public void setStart_year(int start_year) {
-        this.start_year = start_year;
-    }
-
-//    getters & setters START MONTH
-
-    public int getStart_month() {
-        return start_month;
-    }
-
-    public void setStart_month(int start_month) {
-        this.start_month = start_month;
-    }
-
-//    getters & setters VEHICLE GROUP
-
-    public String getVehicle_group() {
-        return vehicle_group;
-    }
-
-    public void setVehicle_group(String vehicle_group) {
-        this.vehicle_group = vehicle_group;
-    }
-
-//    getters & setters LINK
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-//    Constructors
-
     public Models(){
 
     }
@@ -135,5 +53,70 @@ class Models extends Brands {
 
         return endDateProduction;
     }
+
+    public String getId(){
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getEnd_year() {
+        return end_year;
+    }
+
+    public void setEnd_year(int end_year) {
+        this.end_year = end_year;
+    }
+
+    public int getEnd_month() {
+        return end_month;
+    }
+
+    public void setEnd_month(int end_month) {
+        this.end_month = end_month;
+    }
+
+    public int getStart_year() {
+        return start_year;
+    }
+
+    public void setStart_year(int start_year) {
+        this.start_year = start_year;
+    }
+
+    public int getStart_month() {
+        return start_month;
+    }
+
+    public void setStart_month(int start_month) {
+        this.start_month = start_month;
+    }
+
+    public String getVehicle_group() {
+        return vehicle_group;
+    }
+
+    public void setVehicle_group(String vehicle_group) {
+        this.vehicle_group = vehicle_group;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
 
 }

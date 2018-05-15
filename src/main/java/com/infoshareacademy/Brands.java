@@ -15,62 +15,10 @@ public class Brands {
     private boolean hasImage;
     private String link;
 
-
-
-//    Setters and getters for ID
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-//    Setters and getters for NAME
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-//    Setters and getters for LINK
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-
-//    Setter and getters for hasImage
-
-    public boolean isHasImage(){
-        return hasImage;
-    }
-
-    public void setHasImage(boolean hasImage){
-        this.hasImage = hasImage;
-    }
-
-    public String getName_clear() {
-        return name_clear;
-    }
-
-    public void setName_clear(String name_clear){
-        this.name_clear = name_clear;
-    }
-
     public Brands(){
 
     }
 
-//    Constructor - parametryzowany
 
     public Brands(String id, String name, String name_clear, boolean hasImage, String link){
         this.id = id;
@@ -104,6 +52,46 @@ public class Brands {
                 "\n\t obraz : " + hasImage +
                 "\n\t link : " + link + " ]\n";
 
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public boolean isHasImage(){
+        return hasImage;
+    }
+
+    public void setHasImage(boolean hasImage){
+        this.hasImage = hasImage;
+    }
+
+    public String getName_clear() {
+        return name_clear;
+    }
+
+    public void setName_clear(String name_clear){
+        this.name_clear = name_clear;
     }
 }
 
