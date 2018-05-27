@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +11,7 @@
 <div class="pageContent">
     <div class="container-fluid center_box">
         <h1>Zgłoś usterkę swojego samochodu!</h1>
-        <img src="WEB-INF/car(1).png" class="main_img img-fluid">
+        <img src="image/car(1).png" class="main_img img-fluid">
         <div class="margin_center">
             <button type="button" class="btn button">Logowanie</button>
             <button type="button" class="btn button">Rejestracja</button>
