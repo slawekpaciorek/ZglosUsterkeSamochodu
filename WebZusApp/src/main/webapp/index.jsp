@@ -6,13 +6,21 @@
     <title>ZglosUsterkeSamochodu</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link href="assetes/style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <div class="header_content container-fluid">
-<h3 style="margin: auto;  color: whitesmoke; text-align: center;">Header</h3>
+
+            <img src="image/driving_wheel.png" class="img-fluid menu_droper">
+
+            <div class="language_select">
+                <span typeof="button">PL</span>
+                <span typeof="button">EN</span>
+            </div>
+
         </div>
     </header>
 
@@ -32,7 +40,7 @@
 
     <footer>
         <div class="footer_content">
-            <h3 style="margin: auto;  color: whitesmoke; text-align: center;">Footer</h3>
+            <h4>WebApp - ZUS</h4>
         </div>
     </footer>
 
