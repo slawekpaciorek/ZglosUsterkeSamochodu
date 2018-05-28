@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>ZglosUsterkeSamochodu</title>
@@ -7,24 +8,40 @@
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <link href="assetes/style.css" type="text/css" rel="stylesheet">
 </head>
+
 <body>
-<div class="pageContent">
-    <div class="container-fluid center_box">
-        <h1>Zgłoś usterkę swojego samochodu!</h1>
-        <img src="image/car(1).png" class="main_img img-fluid">
-        <div class="margin_center">
-            <button type="button" class="btn button">Logowanie</button>
-            <button type="button" class="btn button">Rejestracja</button>
-            <button type="button" class="btn button">Kontynuuj</button>
+    <header>
+        <div class="header_content container-fluid">
+<h3 style="margin: auto;  color: whitesmoke; text-align: center;">Header</h3>
         </div>
-    </div>
-</div>
+    </header>
+
+       <main>
+        <div class="pageContent">
+            <div class="container-fluid center_box">
+                <h1>Zgłoś usterkę swojego samochodu!</h1>
+                <img src="image/car_grey.png" class="main_img img-fluid">
+                <div class="margin_center container-fluid">
+                    <button type="button" class="btn button">Logowanie</button>
+                    <button type="button" class="btn button">Rejestracja</button>
+                    <button type="button" class="btn button">Kontynuuj</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer_content">
+            <h3 style="margin: auto;  color: whitesmoke; text-align: center;">Footer</h3>
+        </div>
+    </footer>
 
 
-<!--Bootstrap JS-->
+    <!--Bootstrap JS-->
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
+
 </html>
