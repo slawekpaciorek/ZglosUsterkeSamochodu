@@ -5,23 +5,37 @@
     <meta charset="UTF-8">
     <title>ZglosUsterkeSamochodu</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Noto+Sans|Passion+One|Raleway|Ubuntu|Comfortaa|Righteous" rel="stylesheet">
     <link href="assetes/style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <div class="header_content container-fluid">
 
-            <img src="image/driving_wheel.png" class="img-fluid menu_droper">
+        <div class="header_content row no-gutters">
 
-            <div class="language_select">
-                <span typeof="button">PL</span>
-                <span typeof="button">EN</span>
+            <div class="col-sm-4 menu">
+
+                <img src="image/steering-wheel.png" class="img-fluid menu_droper">
+
+            </div>
+
+            <div class="col-sm-4 logo">
+
+                <h3>ZUSWebApp</h3>
+
+            </div>
+
+            <div class="col-sm-4 language_select">
+
+                <button type="button">PL</button>
+
+                <button type="button">EN</button>
+
             </div>
 
         </div>
+
     </header>
 
        <main>

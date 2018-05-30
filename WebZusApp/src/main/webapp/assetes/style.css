@@ -15,45 +15,77 @@ body{
     animation-fill-mode: forwards;
     opacity: 0;
 }
-.header_content, .footer_content{
+
+header{
+    height: 7vh;
     width: 100%;
-    background-color: black;
+
+}
+.header_content, .footer_content{
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+    color: #424242;
 }
 
-.header_content{
-    height: 7vh;
-    display: table;
-    padding: 0.5%;
-    color: whitesmoke;
+.language_select{
+    text-align: right;
 }
+.logo{
+    text-align: center;
+}
+.menu{
+    text-align: left;
+}
+.menu, .logo,.language_select{
+}
+
+.menu img{
+
+    display: block;
+    margin: 1.5% 2%;
+    height: 70%;
+    transition: 3s;
+
+}
+
+.menu img:hover{
+    transform: rotate(720deg);
+}
+
+.logo h3{
+    font-family: "Righteous";
+    margin-top: 1.5%;
+}
+
+.language_select button{
+
+    margin: 1.5% auto;
+    padding: 10px 25px;
+    background-color: whitesmoke;
+    border: solid 1px #424242;
+    font-family: "Ubuntu";
+    border-radius: 10px;
+}
+
+.language_select button:last-child{
+    margin-right: 20px;
+}
+
+.language_select button:hover{
+    background-color: red;
+    color: whitesmoke;
+    opacity: 0.6;
+    border: none;
+}
+
 .footer_content{
     height: 5vh;
     padding: 0.5%;
     color: whitesmoke;
     text-align: center;
 }
-.menu_droper{
-    width: 2.5%;
-    transition: transform 2s;
-}
-.menu_droper:hover{
-    transform: rotate(360deg);
 
-}
-.language_select{
-    display: inline-block;
-    margin-left: 87%;
-    font-size: 1.2em;
-    font-family: "Righteous";
-}
-.language_select>span{
-    marign-left: 4%
-}
-.language_select span:hover{
-    color: red;
-    font-weight: bold;
-
-}
 .pageContent{
     display: block;
     width:100%;
