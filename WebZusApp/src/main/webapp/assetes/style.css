@@ -37,8 +37,6 @@ header{
 .menu{
     text-align: left;
 }
-.menu, .logo,.language_select{
-}
 
 .menu img{
 
@@ -46,7 +44,26 @@ header{
     margin: 1.5% 2%;
     height: 70%;
     transition: 3s;
+}
 
+.menu_content{
+    color: #424242;
+    display: block;
+    width: 30%;
+    background-color: whitesmoke;
+    font-family: "Ubuntu";
+}
+.menu_content>li{
+    padding: 20px 10px;
+    letter-spacing: 1.2px;
+    border-bottom: #424242 solid 1px;
+}
+.menu_content>li:last-child{
+    border-bottom: none;
+}
+.menu_content>li:hover{
+    background-color: grey;
+    color: white;
 }
 
 .menu img:hover{
@@ -55,7 +72,7 @@ header{
 
 .logo h3{
     font-family: "Righteous";
-    margin-top: 1.5%;
+    margin-top: 2%;
 }
 
 .language_select button{
@@ -82,8 +99,14 @@ header{
 .footer_content{
     height: 5vh;
     padding: 0.5%;
-    color: whitesmoke;
+    color: #424242;
     text-align: center;
+    font-family: "Noto Sans";
+}
+
+.footer_content h4>span{
+    color: forestgreen;
+    font-family: "Righteous";
 }
 
 .pageContent{

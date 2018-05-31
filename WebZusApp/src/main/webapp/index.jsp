@@ -16,7 +16,15 @@
 
             <div class="col-sm-4 menu">
 
-                <img src="image/steering-wheel.png" class="img-fluid menu_droper">
+                <img src="image/steering-wheel.png" class="img-fluid menu_button">
+
+                <ul class="menu_content">
+                    <li><a>Logowanie</a></li>
+                    <li><a>Rejestracja</a></li>
+                    <li><a>O aplikacji</a></li>
+                    <li><a>Dodatki</a></li>
+                    <li><a>Kontakt</a></li>
+                </ul>
 
             </div>
 
@@ -39,7 +47,9 @@
     </header>
 
        <main>
+
         <div class="pageContent">
+
             <div class="container-fluid center_box">
                 <h1>Zgłoś usterkę swojego samochodu!</h1>
                 <img src="image/car_grey.png" class="main_img img-fluid">
@@ -54,16 +64,21 @@
 
     <footer>
         <div class="footer_content">
-            <h4>WebApp - ZUS</h4>
+            <h4>#team<span>ZIELONI</span></h4>
         </div>
     </footer>
 
 
     <!--Bootstrap JS-->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <!--Page_Animation.js-->
+
+    <script src="assetes/page_animation.js"></script>
+
 </body>
 
 </html>
