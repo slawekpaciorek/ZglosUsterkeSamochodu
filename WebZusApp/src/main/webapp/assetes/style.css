@@ -120,13 +120,12 @@ header{
             black 10%,
             black 20%);
     padding: 1% 0;
-
 }
 
 .center_box{
     background-color: whitesmoke;
+    box-sizing: border-box;
     color: darkslategrey;
-    display: block;
     width: 100%;
     height: 100%;
 }
@@ -181,4 +180,83 @@ h1{
     display: block;
     width: 100%;
     text-align: center;
+}
+
+/** login page styles **/
+
+.col_content{
+    display: block;
+    height: 100%;
+    text-align: center;
+}
+
+.col_content:first-child img{
+    display: block;
+    height: 50%;
+    margin: 20% auto;
+    padding: 5% 10%;
+    border-bottom: solid 3px #424242;
+    transition: 2s;
+}
+
+.col_content:first-child img:hover{
+    transform: rotateY(540deg);
+}
+
+.col_content .login_form{
+    display: block;
+    height: 70%;
+    width: 60%;
+    margin: 15% auto;
+    padding: 5%;
+    background-color: #eaeaea;
+    border-radius: 15px;
+    opacity: 0.6;
+}
+
+.login_form:hover{
+    opacity: 1;
+}
+
+.login_form img{
+    display: block;
+    margin: auto;
+    margin-bottom: 20%
+}
+.login_form label{
+    background-color: white;
+    width: 35%;
+}
+
+.login_form input{
+    width: 55%;
+    background-color: snow;
+    border: none;
+}
+
+.login_form input , .login_form label{
+    margin: 2.5% 0;
+    padding: 10px;
+    font-family: "Ubuntu";
+    color: #424242;
+
+}
+.login_form button{
+    display: block;
+    width: 90%;
+    margin: 5%;
+    background-color: forestgreen;
+    color: white;
+    font-family: "Ubuntu";
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+
+}
+.login_form button:last-child{
+    background-color: red;
+}
+
+.login_form button:hover{
+    opacity: 0.7;
 }

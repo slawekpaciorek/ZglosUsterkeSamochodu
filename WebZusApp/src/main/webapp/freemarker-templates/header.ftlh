@@ -16,7 +16,7 @@
 
         <div class="col-sm-4 menu">
 
-            <img src="image/steering-wheel.png" class="img-fluid menu_button">
+            <img src="../image/steering-wheel.png" class="img-fluid menu_button">
 
             <ul class="menu_content">
                 <li><a>Logowanie</a></li>
