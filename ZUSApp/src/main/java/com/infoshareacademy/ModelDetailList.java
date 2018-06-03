@@ -1,7 +1,5 @@
 package com.infoshareacademy;
 
-import sun.font.CoreMetrics;
-
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import java.io.IOException;
