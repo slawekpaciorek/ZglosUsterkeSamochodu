@@ -1,10 +1,9 @@
 package com.isa.zuswebapp;
 
-import javax.xml.ws.soap.Addressing;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
+
 
 public class User {
 
@@ -75,15 +74,12 @@ public class User {
 
             String country = adress.getCountry();
             String city = adress.getCity();
-            String street = adress.getStreet();
-            String houseNumber = String.valueOf(adress.getHouseNumber());
-            String flatNumber = String.valueOf(adress.getFlatNumber());
+            String street = adress.getStreetNumberAndHouse();
 
             userAdress.put("country", country);
             userAdress.put("city", city);
-            userAdress.put("street" , street);
-            userAdress.put("house number" , houseNumber);
-            userAdress.put("flat number", flatNumber);
+            userAdress.put("streetNumberAndHouse" , street);
+
 
     }
 
@@ -104,9 +100,7 @@ class Adress{
 
     private String country;
     private String city;
-    private String street;
-    private int houseNumber;
-    private Optional<Integer> flatNumber;
+    private String streetNumberAndHouse;
 
     public String getCountry() {
         return country;
@@ -124,27 +118,12 @@ class Adress{
         this.city = city;
     }
 
-    public String getStreet() {
-        return street;
+    public String getStreetNumberAndHouse() {
+        return streetNumberAndHouse;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setStreetNumberAndHouse(String streetNumberAndHouse) {
+        this.streetNumberAndHouse = streetNumberAndHouse;
     }
 
-    public int getHouseNumber() {
-        return houseNumber;
-    }
-
-    public void setHouseNumber(int houseNumber) {
-        this.houseNumber = houseNumber;
-    }
-
-    public Optional<Integer> getFlatNumber() {
-        return flatNumber;
-    }
-
-    public void setFlatNumber(Optional<Integer> flatNumber) {
-        this.flatNumber = flatNumber;
-    }
 }
