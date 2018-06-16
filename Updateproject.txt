@@ -1,1 +1,2 @@
-Split proejct into two repositories.
+Split proejct into two repositories, ZUS i WEBapp
+
