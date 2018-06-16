@@ -70,8 +70,17 @@ class PartsDetails {
         return dataList;
     }
 
-
-
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "PartsDetails{" +
+                "id='" + id + '\'' +
+                ", details=" + details +
+                ", properties=" + properties +
+                ", pdfURLFile=" + pdfURLFile +
+                ", jpgURLFile=" + jpgURLFile +
+                ", additionalInfo=" + additionalInfo +
+                '}';
+    }
 }
 
 
