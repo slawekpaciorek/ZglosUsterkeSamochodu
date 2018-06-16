@@ -16,33 +16,37 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet("login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("service")
+public class ServiceServlet extends HttpServlet {
 
     Logger logger = Logger.getLogger(getClass().getName());
 
     Template template;
 
-    public void init() throws ServletException{
+    public void init(){
 
         try{
-            template = TemplateSupplier.createTemplate(getServletContext(), "login.ftlh");
+            template = TemplateSupplier.createTemplate(getServletContext(), "service-panel.ftlh");
         }catch (IOException ex){
             logger.log(Level.SEVERE, ex.getMessage(), ex);
         }
+
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter pw = response.getWriter();
-        Map<String, Object> data = new HashMap<>();
+        Map<String, Object> data = new HashMap();
+        PrintWriter printWriter = response.getWriter();
 
         try{
-            template.process(data, pw);
+            template.process(data, printWriter);
         }catch (TemplateException ex){
             logger.log(Level.SEVERE, ex.getMessage(), ex);
         }
 
     }
+
+
 }
