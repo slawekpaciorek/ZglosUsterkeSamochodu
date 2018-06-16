@@ -21,7 +21,7 @@ body{
 
 header{
     display: block;
-    min-height: 7%;
+    min-height: 5vh;
     text-align: center;
     width: 100%;
     background-color: whitesmoke;
@@ -99,7 +99,7 @@ header{
 
 .pageContent{
 
-    min-height: 70%;
+    min-height: 85vh;
     background: repeating-linear-gradient(
             55deg,
             yellow,
@@ -110,7 +110,7 @@ header{
 }
 .center_box{
 
-    min-height: 75%;
+    min-height: 85vh;
     background-color: whitesmoke;
     text-align: center;
     font-family: "Comfortaa";
@@ -143,10 +143,6 @@ header{
     text-align: center;
 }
 
-.margin_center form{
-
-}
-
 .margin_center button{
     display: inline-block;
     margin: 3% 4.5%;
@@ -173,7 +169,7 @@ header{
 .footer_content{
     background-color: whitesmoke;
     padding: 2% 0;
-    min-height: 10%;
+    min-height: 5vh;
     text-align: center;
     color: #424242;
     font-size: 1.8em;
@@ -186,22 +182,158 @@ header{
 
 /*** Styles for templates ***/
 
-.col_content{
-    margin: 2% 0;
-    padding: 5%;
-    
-}
-
-.col_content img{
+.login_form{
 
     display: block;
-    margin: auto;
-    width: 20%;
-    padding: 3%;
+    margin: 50px auto;
+    height: fit-content;
+    text-align: center;
 }
 
+.login_form input{
+
+    display: block;
+    margin: 10px auto;
+    width: 50%;
+    padding: 1% 5%;
+    background-color: #eaeaea;
+    line-height: 2em;
+    border-radius: 10px;
+
+}
+
+.login_form img{
+    display: block;
+    margin: 1% auto;
+}
+
+.login_form button{
+    padding: 1%;
+    background-color: green;
+    width: 25%;
+    color: white;
+    font-family: "Ubuntu";
+    border: none;
+    border-radius: 10px;
+}
+.login_form button:last-child{
+    background-color: red;
+}
+
+.login_form button:hover{
+    opacity: 0.75;
+}
+
+.comp_img{
+
+    height: 45%;
+    padding: 5%;
+}
+
+#servicePanel{
+
+    font-family: "Ubuntu";
+    padding: 15px 0;
+    text-align: center;
+
+}
+
+#servicePanel h2{
+    margin: 10px auto 20px auto;
+    font-weight: bolder;
+}
+#servicePanelManagment{
+    background-color: #424242;
+    color: whitesmoke;
+    border-radius: 15px;
+}
+
+#servicePanelManagment ul{
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+#servicePanelManagment li{
+    padding: 5px 15px;
+    font-size: 1.1em;
+    border-top: solid 1px whitesmoke;
+
+}
+
+#servicePanelManagment li:last-child{
+    border-bottom: solid 1px whitesmoke;
+}
+
+#servicePanelManagment li:hover{
+    color: #424242;
+    background-color: whitesmoke;
+}
+#orderList{
+    padding-left: 15px;
+}
+
+#orderList div{
+    border: solid 4px #424242;
+    background-color: whitesmoke;
+
+}
+
+#orderList h3{
+    background-color: #424242;
+    color: whitesmoke;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 0 ;
+}
+#orderList div,
+#orderDetails div{
+    color: #424242;
+    min-height: 750px;
+    border-radius: 15px;
+}
+
+#orderDetails{
+    background-color: white;
+    padding-left: 15px;
 
 
+}
+
+#orderDetails > div:first-child{
+    border: solid 4px #424242;
+
+
+}
+
+#orderDetails h3{
+    background-color: #424242;
+    padding: 10px 20px 20px 20px;
+    color: whitesmoke;
+    width: 100%;
+}
+
+#orderList div ul{
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+#orderList li {
+    display: inline-block;
+    width: 100%;
+    padding: 20px 10px;
+    font-family: Comfortaa;
+    font-weight: bolder;
+    color: #424242;
+    border-bottom: solid 2px #424242;
+
+}
+
+#orderList li:hover{
+    background-color: lightgreen;
+    color: #424242;
+}
 
 
 

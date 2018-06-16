@@ -20,6 +20,7 @@
             <img src="../image/steering-wheel.png" class="img-fluid menu_button">
 
             <ul class="menu_content">
+                <li><a href="">Start</a></li>
                 <li><a href="login">Logowanie</a></li>
                 <li><a href="register">Rejestracja</a></li>
                 <li><a>O aplikacji</a></li>
