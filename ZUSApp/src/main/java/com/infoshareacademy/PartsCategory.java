@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class PartsCategory {
+public class PartsCategory {
 
 
 
@@ -77,89 +77,5 @@ class PartsCategory {
 
 }
 
-class Category{
-
-    private String name;
-    private String link;
-    private boolean sublist;
-
-    public String getLink() {
-        return link;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public boolean getSublist(){
-        return sublist;
-    }
-
-    public Category(){
-
-    }
-
-    public Category(String name, String link, boolean sublist){
-        this.name = name;
-        this.link = link;
-        this.sublist = sublist;
-    }
-
-    @Override
-    public String toString() {
-        return "\nNazwa kategori : " + name +
-                "\nLink do kategori : " + link + "\n";
-    }
 
 
-}
-
-class Stock{
-
-    private String brand;
-    private String number;
-    private String name;
-    private String status;
-    private String link;
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public Stock(){
-
-    }
-
-    public Stock(String brand, String number, String name, String status, String link){
-
-        this.brand = brand;
-        this.number = number;
-        this.name = name;
-        this.status = status;
-        this.link = link;
-    }
-
-    @Override
-    public String toString() {
-        return "\n\t" + name + "" +
-                "\n marka : " + brand +
-                "\n nr katalogowy : " + number +
-                "\n status : " + status + "\n";
-    }
-}

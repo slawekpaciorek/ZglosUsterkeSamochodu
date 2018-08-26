@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-class ModelsList {
+public class ModelsList {
 
     public List <Models> modelsList = new ArrayList<>();
 

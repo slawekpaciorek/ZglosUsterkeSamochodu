@@ -3,7 +3,7 @@ package com.infoshareacademy;
 import java.net.URL;
 import java.time.LocalDateTime;
 
-class Models extends Brands {
+public class Models extends Brands {
 
     private String id;
     private String name;
