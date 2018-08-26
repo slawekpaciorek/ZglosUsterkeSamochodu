@@ -388,7 +388,8 @@ public class SearchOperator implements AppOperator  {
     public Brands chooseFromList(List<Brands> listOfBrands, Brands brand){
 
 
-        System.out.println("Wybierz markę z pośród wyświetlonej listy : ");
+        System.out.print("Wybierz markę z pośród wyświetlonej listy : ");
+        System.out.println();
         String inputIn = inputReader.next().toUpperCase();
         brand = listOfBrands.stream().filter(x -> x.getName().equals(inputIn)).findAny().get();
         System.out.println("Wybrana marka pojazdu to : " + brand.getName().toUpperCase());
