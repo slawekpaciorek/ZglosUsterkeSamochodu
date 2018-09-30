@@ -7,22 +7,6 @@ public class Stock {
     private String status;
     private String link;
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
     public String getLink() {
         return link;
     }

@@ -54,20 +54,8 @@ public class Brands {
 
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getLink() {
@@ -78,20 +66,5 @@ public class Brands {
         this.link = link;
     }
 
-    public boolean isHasImage(){
-        return hasImage;
-    }
-
-    public void setHasImage(boolean hasImage){
-        this.hasImage = hasImage;
-    }
-
-    public String getName_clear() {
-        return name_clear;
-    }
-
-    public void setName_clear(String name_clear){
-        this.name_clear = name_clear;
-    }
 }
 

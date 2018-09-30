@@ -67,9 +67,9 @@ public class BrandsList {
 
     public List<Brands> selectLetter(String input){
 
-        List names = brandsNames.stream().filter(x->x.startsWith(input)).collect(Collectors.toList());
+        List namesOfBrands = brandsNames.stream().filter(x->x.startsWith(input)).collect(Collectors.toList());
 
-        return names;
+        return namesOfBrands;
     }
 
 

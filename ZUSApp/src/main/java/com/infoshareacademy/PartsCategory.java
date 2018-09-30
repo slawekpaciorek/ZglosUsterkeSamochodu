@@ -8,13 +8,10 @@ import java.util.List;
 
 public class PartsCategory {
 
-
-
     public List<Category> getPartsCategory(String sublink) throws IOException{
 
         List<Category> partsCategoryList = new ArrayList<>();
         String searchLink = JSONLoader.MAINLINK + sublink;
-
 
         JsonArray jsonArray = new JSONLoader().showDataArray(searchLink);
 
@@ -31,26 +28,6 @@ public class PartsCategory {
         }
 
         return partsCategoryList;
-    }
-
-    public List<Category> partsCategorySubList(String sublink) throws IOException{
-
-        List<Category> subList = new ArrayList<>();
-        String serachlink = JSONLoader.MAINLINK + sublink;
-        JsonArray jsonArray = new JSONLoader().showDataArray(serachlink);
-
-        for (int i = 0; i < jsonArray.size() ; i++) {
-
-            JsonObject jsonObject = jsonArray.getJsonObject(i);
-
-            String name = jsonObject.getString("name");
-            String link = jsonObject.getString("link");
-            boolean sublist = jsonObject.getBoolean("has_children");
-
-            subList.add(new Category(name, link, sublist));
-        }
-
-        return subList;
     }
 
     public List<Stock> getStockList(String sublink) throws IOException{

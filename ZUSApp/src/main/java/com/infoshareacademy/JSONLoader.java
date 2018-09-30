@@ -14,19 +14,16 @@ import javax.json.JsonReader;
 
 public class JSONLoader {
 
-    public String jsonObjectName;
-
     public static String MAINLINK = "http://infoshareacademycom.2find.ru";
     public static String SUBLINK = "/api/v2";
 
-
-    public String sURL;
     public String data;
     public JsonArray dataContent;
 
     public String showDataType(String sURL) throws IOException {
-        //sURL = "http://infoshareacademycom.2find.ru/api/v2";
-        URL url = new URL(sURL);
+
+        URL url;
+        url = new URL(sURL);
 
         InputStream is =  url.openStream();
         JsonReader rdr = Json.createReader(is);
@@ -37,7 +34,6 @@ public class JSONLoader {
     }
 
     public JsonArray showDataArray(String sURL) throws IOException {
-        //sURL = "http://infoshareacademycom.2find.ru/api/v2/";
 
         URL url = new URL(sURL);
         HttpURLConnection request = (HttpURLConnection) url.openConnection();

@@ -54,7 +54,7 @@ public class ModelDetailList {
 
         if(!checkNull) {
             String valueStr = jsonObject.getString(name);
-            return value = Integer.parseInt(valueStr);
+            return Integer.parseInt(valueStr);
         }
         else
             return value;

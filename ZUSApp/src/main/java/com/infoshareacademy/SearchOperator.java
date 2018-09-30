@@ -3,7 +3,6 @@ package com.infoshareacademy;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
@@ -11,10 +10,13 @@ import java.util.stream.Collectors;
 
 public class SearchOperator implements AppOperator  {
 
-    Scanner inputReader = new Scanner(System.in);
-    JSONLoader jsonLoader = new JSONLoader();
-    String input;
-    boolean inputValidation = false;
+    private Scanner inputReader;
+    private String input;
+    private boolean inputValidation = false;
+
+    public SearchOperator() {
+        inputReader = new Scanner(System.in);
+    }
 
     @Override
     public void execute() {
@@ -48,8 +50,8 @@ public class SearchOperator implements AppOperator  {
             System.out.println();
 
             if (brandsList.brandsNames.contains(input)) {
-                brand = listOfBrands.stream().filter(x -> x.getName().equals(input)).findAny().get();
-                System.out.println("Wybrana marka pojazdu to : " + brand.getName().toUpperCase());
+                brand = (listOfBrands != null) ? listOfBrands.stream().filter(x -> x.getName().equals(input)).findAny().get() : null;
+                System.out.println("Wybrana marka pojazdu to : " + (brand != null ? brand.getName().toUpperCase() : null));
                 inputValidation = true;
 
             } else if (input.length() == 1) {
@@ -75,13 +77,13 @@ public class SearchOperator implements AppOperator  {
         System.out.println();
 
         if (input.equals("yes"))
-            System.out.println(brand.toString());
+            System.out.println((brand != null) ? brand.toString() : null);
         else
             System.out.println("Lista dosępnych modeli znajduje się poniżej.");
         System.out.println();
 
-        String link = brand.getLink();
-        List<Models> modelsListNames = new ArrayList<>();
+        String link = (brand != null) ? brand.getLink() : null;
+        List modelsListNames = new ArrayList<>();
 
         try {
             modelsListNames = new ModelsList().getModelsListNames(link);
@@ -99,7 +101,7 @@ public class SearchOperator implements AppOperator  {
 
         Models model = new Models();
         List<Models> listOfModels = null;
-        ModelsList modelList = null;
+        ModelsList modelList;
 
 
         try {
@@ -114,12 +116,12 @@ public class SearchOperator implements AppOperator  {
             System.out.print("Wybierz interesujacy Cie model : ");
             input = returnInput().trim().toLowerCase();
             System.out.println();
-            List<String> modelsNamesList = listOfModels.stream().map(x->x.getName().toLowerCase().trim()).collect(Collectors.toList());
+            List<String> modelsNamesList = (listOfModels != null) ? listOfModels.stream().map(x -> x.getName().toLowerCase().trim()).collect(Collectors.toList()) : null;
 
             if (modelsNamesList.contains(input)) {
                 model = listOfModels.stream().filter(x -> x.getName().trim().toLowerCase().equals(input)).findAny().get();
                 System.out.println();
-                System.out.print("Wybrany przez Ciebie model to : " + brand.getName() + " " + model.getName() + ". " +
+                System.out.print("Wybrany przez Ciebie model to : " + (brand != null ? brand.getName() : null) + " " + model.getName() + ". " +
                         "\n\nJesli interesuja cie dodtakowe informacje wpisz 'more' lub 'forward' aby kontynuowac : ");
 
                 String inputInIf = inputReader.next();
@@ -289,22 +291,23 @@ public class SearchOperator implements AppOperator  {
         System.out.println("Ponizej znajduje sie lista kategori czesci dla wybranego pojazd :");
 
         List<Category> partsCategories = null;
-        String sublink = version.getLink();
+        String slink = version.getLink();
 
         try {
-            partsCategories = new PartsCategory().getPartsCategory(sublink);
+            partsCategories = new PartsCategory().getPartsCategory(slink);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        List<String> categoriesNames = partsCategories.stream().map(Category::getName).collect(Collectors.toList());
+        List<String> categoriesNames;
+        categoriesNames = (partsCategories != null) ? partsCategories.stream().map(Category::getName).collect(Collectors.toList()) : null;
         System.out.println(categoriesNames.toString());
 
         System.out.print("\nWprowadz nazwe kategori : ");
         input = returnInput().toLowerCase();
         Category category = new Category();
-        List<Category> partsSubList = new ArrayList<>();
-        List<String> subCategoryNames = new ArrayList();
+        List<Category> partsSubList = new ArrayList<Category>();
+        List<String> subCategoryNames = new ArrayList<String>();
         Category subCategory = null;
         List<String> categoriesNamesLowerCase = categoriesNames.stream().map(String::toLowerCase).collect(Collectors.toList());
 
@@ -314,7 +317,7 @@ public class SearchOperator implements AppOperator  {
                     .filter(x -> x.getName().toLowerCase().equals(input)).findAny().get();
 
             try {
-                partsSubList = new PartsCategory().partsCategorySubList(category.getLink());
+                partsSubList = new PartsCategory().getPartsCategory(category.getLink());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -339,7 +342,7 @@ public class SearchOperator implements AppOperator  {
             if (subCategoryNamesLowerCase.contains(input) && subCategory.getSublist()) {
 
                 try {
-                    partsSubList = new PartsCategory().partsCategorySubList(subCategory.getLink());
+                    partsSubList = new PartsCategory().getPartsCategory(subCategory.getLink());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -400,11 +403,7 @@ public class SearchOperator implements AppOperator  {
 
     public String returnInput(){
         Scanner scn = new Scanner(System.in);
-
-        String input = scn.nextLine();
-
-        return input;
-
+        return scn.nextLine();
     }
 
 

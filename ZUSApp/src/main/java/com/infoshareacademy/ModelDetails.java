@@ -54,18 +54,6 @@ public class ModelDetails{
         return name;
     }
 
-    public String getEngine() {
-        return engine;
-    }
-
-    public String getEngine_desc() {
-        return engine_desc;
-    }
-
-    public String getFuel() {
-        return fuel;
-    }
-
     public String getBody() {
         return body;
     }

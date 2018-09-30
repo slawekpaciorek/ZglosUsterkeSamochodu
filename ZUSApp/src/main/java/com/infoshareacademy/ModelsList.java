@@ -43,10 +43,7 @@ public class ModelsList {
 
     public List getModelsListNames(String sublink)throws IOException{
 
-
-        List modelsNamesList = new ModelsList().getModelsList(sublink).stream().map(x->x.getName()).collect(Collectors.toList());
-
-        return modelsNamesList;
+        return new ModelsList().getModelsList(sublink).stream().map(Models::getName).collect(Collectors.toList());
     }
 
     private int value(String name, JsonObject jsonObject) {
@@ -56,7 +53,7 @@ public class ModelsList {
 
         if (!checkNull){
             String valueS = jsonObject.getString(name);
-            return value = Integer.parseInt(valueS);
+            return Integer.parseInt(valueS);
         }
         else
             return value;
